@@ -3,613 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poubelle Souriante DLD - Innovation Ivoirienne</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #667eea;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo::before {
-            content: "🗑️😊";
-            margin-right: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .section {
-            background: white;
-            margin: 2rem 0;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transform: translateY(0);
-            transition: transform 0.3s;
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .task-section {
-            background: #f8f9fa;
-            border-left: 5px solid #667eea;
-        }
-
-        .task-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .task-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 2px solid #e9ecef;
-            transition: border-color 0.3s;
-        }
-
-        .task-card:hover {
-            border-color: #667eea;
-        }
-
-        .task-card h4 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .name-input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 2px solid #e9ecef;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .name-input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .sales-section {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-        }
-
-        .sales-section h2 {
-            color: white;
-        }
-
-        .price-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            text-align: center;
-        }
-
-        .contact-info h2 {
-            color: white;
-        }
-
-        .creator-info {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            text-align: center;
-        }
-
-        .creator-info h2 {
-            color: white;
-        }
-
-        .status-bar {
-            background: linear-gradient(90deg, #f39c12, #e67e22);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 10px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-
-        .blessing {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #fd79a8, #e84393);
-            color: white;
-            margin: 2rem 0;
-            border-radius: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .team-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .team-member {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .section {
-                margin: 1rem 0;
-                padding: 2rem 1rem;
-            }
-        }
-
-        .save-btn {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
-            margin: 1rem 0;
-        }
-    </style>
+    <title>Système π - Éducation Interactive</title>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Poubelle Souriante DLD</div>
-            <ul class="nav-links">
-                <li><a href="#projet"><strong>Projet</strong></a></li>
-                <li><a href="#taches"><strong>Tâches</strong></a></li>
-                <li><a href="#ventes"><strong>Ventes</strong></a></li>
-                <li><a href="#contact"><strong>Contact</strong></a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="hero">
-            <h1>Poubelle Souriante DLD</h1>
-            <p>L'innovation ivoirienne pour un environnement plus propre et intelligent</p>
-            <div class="status-bar">
-                🔄 Nouvelle vie en cours de téléchargement... 📱 FBI
-            </div>
-        </section>
-
-        <section id="projet" class="section">
-            <h2>Notre Projet Innovant</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Ouverture Automatique</h3>
-                    <p>Système d'ouverture et fermeture automatique grâce aux capteurs intelligents</p>
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+          return (
+            <div className="min-h-screen bg-gray-100 font-sans">
+              {/* En-tête */}
+              <header className="bg-blue-600 text-white py-16">
+                <div className="container mx-auto px-4 text-center">
+                  <h1 className="text-5xl font-bold">Système π</h1>
+                  <p className="mt-4 text-2xl">Transformer l’éducation avec la technologie interactive</p>
+                  <a href="#contact" className="mt-8 inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-medium hover:bg-blue-100 transition">Découvrir le Projet</a>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">📺</div>
-                    <h3>Écran LCD</h3>
-                    <p>Affichage de messages personnalisés et informations utiles pour les utilisateurs</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📡</div>
-                    <h3>Capteur Ultrason</h3>
-                    <p>Détection précise de la présence pour une utilisation sans contact</p>
-                </div>
-            </div>
-            
-            <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 10px; margin: 2rem 0;">
-                <h4 style="color: #1976d2; margin-bottom: 1rem;">📋 État du projet</h4>
-                <p><strong>✅ Réalisé :</strong> 3 poubelles automatiques fonctionnelles</p>
-                <p><strong>📄 En cours :</strong> Dossier OAPI déposé depuis 3 mois</p>
-                <p><strong>🎯 Objectif :</strong> Finaliser le prototype et commencer la commercialisation</p>
-            </div>
-        </section>
+              </header>
 
-        <section id="taches" class="section task-section">
-            <h2>Plan d'Action et Tâches</h2>
-            
-            <div class="task-grid">
-                <div class="task-card">
-                    <h4>👥 Binôme Technique</h4>
-                    <p><strong>Mission :</strong> Amélioration du prototype et tests</p>
-                    <input type="text" class="name-input" placeholder="Nom et prénom responsable 1" id="tech1">
-                    <input type="text" class="name-input" placeholder="Nom et prénom responsable 2" id="tech2">
-                    <p><strong>Tâches :</strong></p>
-                    <ul style="margin-left: 1rem;">
-                        <li>Audit technique du prototype</li>
-                        <li>Améliorer l'interface utilisateur</li>
-                        <li>Tests de fonctionnement</li>
-                        <li>Documentation technique</li>
+              {/* Navigation */}
+              <nav className="bg-white shadow sticky top-0 z-10">
+                <div className="container mx-auto px-4 py-4">
+                  <ul className="flex justify-center space-x-8">
+                    <li><a href="#mission" className="text-blue-600 hover:underline font-medium">Mission</a></li>
+                    <li><a href="#overview" className="text-blue-600 hover:underline font-medium">Aperçu</a></li>
+                    <li><a href="#features" className="text-blue-600 hover:underline font-medium">Fonctionnalités</a></li>
+                    <li><a href="#prototype" className="text-blue-600 hover:underline font-medium">Prototype</a></li>
+                    <li><a href="#team" className="text-blue-600 hover:underline font-medium">Équipe</a></li>
+                    <li><a href="#agenda" className="text-blue-600 hover:underline font-medium">Agenda</a></li>
+                    <li><a href="#testimonials" className="text-blue-600 hover:underline font-medium">Témoignages</a></li>
+                    <li><a href="#faq" className="text-blue-600 hover:underline font-medium">FAQ</a></li>
+                    <li><a href="#contact" className="text-blue-600 hover:underline font-medium">Contact</a></li>
+                  </ul>
+                </div>
+              </nav>
+
+              {/* Contenu Principal */}
+              <main className="container mx-auto px-4 py-12">
+                {/* Section Mission */}
+                <section id="mission" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Notre Mission</h2>
+                  <p className="text-gray-700 max-w-3xl mx-auto text-lg">
+                    Chez Système π, nous croyons que l’éducation est la clé d’un avenir meilleur. Notre mission est de rendre l’apprentissage plus accessible, engageant et efficace grâce à une technologie innovante et abordable. En collaborant avec les écoles et les communautés éducatives, nous visons à créer des salles de classe dynamiques où chaque élève peut s’épanouir.
+                  </p>
+                </section>
+
+                {/* Section Aperçu */}
+                <section id="overview" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Aperçu du Projet</h2>
+                  <p className="text-gray-700 max-w-3xl mx-auto text-lg">
+                    Le système π est une solution éducative révolutionnaire conçue pour moderniser les salles de classe en Côte d’Ivoire et au-delà. En intégrant la reconnaissance faciale, la projection multimédia et une interface interactive, π automatise le suivi des présences, enrichit l’enseignement et engage les élèves de manière dynamique. Notre objectif est de fournir une technologie abordable (~195 000 FCFA par unité) pour transformer l’expérience éducative.
+                  </p>
+                </section>
+
+                {/* Section Fonctionnalités */}
+                <section id="features" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Fonctionnalités Clés</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                      <h3 className="text-xl font-medium mb-3">Reconnaissance Faciale</h3>
+                      <p className="text-gray-600">Identification automatique des élèves pour un suivi précis et rapide des présences, réduisant le temps administratif.</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                      <h3 className="text-xl font-medium mb-3">Projection Multimédia</h3>
+                      <p className="text-gray-600">Diffusion de contenus pédagogiques riches et synchronisés pour un enseignement visuel et interactif.</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                      <h3 className="text-xl font-medium mb-3">Interface Interactive</h3>
+                      <p className="text-gray-600">Outils de quiz, sondages et Q&R en temps réel pour stimuler l’engagement et la participation des élèves.</p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Section Prototype */}
+                <section id="prototype" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Prototype Actuel</h2>
+                  <p className="text-gray-700 max-w-3xl mx-auto mb-6 text-lg">
+                    Notre prototype fonctionnel, basé sur un Raspberry Pi 4, une webcam HD et un mini-projecteur, offre les fonctionnalités suivantes :
+                  </p>
+                  <ul className="list-disc pl-6 text-gray-700 max-w-3xl mx-auto">
+                    <li>Reconnaissance faciale basique avec OpenCV (précision actuelle ~85 %).</li>
+                    <li>Projection de contenus multimédias synchronisés.</li>
+                    <li>Interface web pour la gestion des présences et des contenus pédagogiques.</li>
+                  </ul>
+                  <p className="text-gray-700 max-w-3xl mx-auto mt-6 text-lg">
+                    Nous travaillons à améliorer la précision de la reconnaissance faciale (>95 %) et à intégrer des fonctionnalités interactives avancées, comme des tableaux de bord personnalisés pour les enseignants.
+                  </p>
+                </section>
+
+                {/* Section Équipe */}
+                <section id="team" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Notre Équipe</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                      <h3 className="text-xl font-medium mb-2">Ouraga Ange Michel</h3>
+                      <p className="text-gray-600">Président d’Oser Accomplir Mieux (OAM), Chef de projet, Développeur</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                      <h3 className="text-xl font-medium mb-2">Kouabena Philippe Eliora</h3>
+                      <p className="text-gray-600">Conseiller technique</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                      <h3 className="text-xl font-medium mb-2">N’dia Grâce Emmanuella</h3>
+                      <p className="text-gray-600">Conseillère pédagogique, Responsable communication</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                      <h3 className="text-xl font-medium mb-2">Lionel Ciad</h3>
+                      <p className="text-gray-600">Responsable marketing</p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Section Agenda */}
+                <section id="agenda" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Agenda de Réunion & Répartition des Tâches</h2>
+                  <div className="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 className="text-2xl font-medium mb-4">Objectif de la Réunion</h3>
+                    <p className="text-gray-700 mb-6">
+                      Raviver l’élan du projet π, aligner l’équipe sur la vision, et attribuer des tâches réalistes pour avancer efficacement avec des ressources limitées.
+                    </p>
+                    <h3 className="text-2xl font-medium mb-4">Agenda de la Réunion</h3>
+                    <p className="text-gray-700 mb-4">
+                      <strong>Date :</strong> 5 août 2025 (à confirmer)<br />
+                      <strong>Heure :</strong> 10h00<br />
+                      <strong>Lieu :</strong> Abidjan-Cocody, Cité des Arts, ou lien Zoom (à confirmer)<br />
+                      <strong>Durée :</strong> 1h30
+                    </p>
+                    <ul className="list-disc pl-6 text-gray-700 mb-6">
+                      <li><strong>Introduction (10 min)</strong>: Rappel de la vision et état du prototype.</li>
+                      <li><strong>Revue du Prototype (15 min)</strong>: Démonstration et retours des tests.</li>
+                      <li><strong>Discussion (20 min)</strong>: Priorités et ressources disponibles.</li>
+                      <li><strong>Attribution des Tâches (30 min)</strong>: Répartition et délais.</li>
+                      <li><strong>Clôture (15 min)</strong>: Résumé et prochaines étapes.</li>
                     </ul>
-                </div>
-
-                <div class="task-card">
-                    <h4>💼 Binôme Business</h4>
-                    <p><strong>Mission :</strong> Financement et développement commercial</p>
-                    <input type="text" class="name-input" placeholder="Nom et prénom responsable 1" id="biz1">
-                    <input type="text" class="name-input" placeholder="Nom et prénom responsable 2" id="biz2">
-                    <p><strong>Tâches :</strong></p>
-                    <ul style="margin-left: 1rem;">
-                        <li>Recherche de financements</li>
-                        <li>Inscription aux concours étudiants</li>
-                        <li>Étude de marché</li>
-                        <li>Plan de vente</li>
+                    <h3 className="text-2xl font-medium mb-4">Répartition des Tâches</h3>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left text-gray-700">
+                        <thead>
+                          <tr className="bg-gray-200">
+                            <th className="p-4">Tâche</th>
+                            <th className="p-4">Responsable</th>
+                            <th className="p-4">Description</th>
+                            <th className="p-4">Livrable</th>
+                            <th className="p-4">Délai</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-t">
+                            <td className="p-4">Amélioration du Prototype</td>
+                            <td className="p-4">Ouraga Ange Michel</td>
+                            <td className="p-4">Améliorer la précision de la reconnaissance faciale (>95 %) avec OpenCV.</td>
+                            <td className="p-4">Fichier detector.py mis à jour ; rapport de test (PDF).</td>
+                            <td className="p-4">26 août 2025</td>
+                          </tr>
+                          <tr className="border-t">
+                            <td className="p-4">Amélioration de l’Interface Web</td>
+                            <td className="p-4">Ouraga Ange Michel</td>
+                            <td className="p-4">Développer une interface web conviviale pour les enseignants.</td>
+                            <td className="p-4">Site web fonctionnel (Netlify).</td>
+                            <td className="p-4">19 août 2025</td>
+                          </tr>
+                          <tr className="border-t">
+                            <td className="p-4">Recherche de Financements</td>
+                            <td className="p-4">Kouabena Philippe Eliora</td>
+                            <td className="p-4">Identifier des sources de financement (ONG, subventions, crowdfunding).</td>
+                            <td className="p-4">Liste de 5 à 10 opportunités (Google Doc).</td>
+                            <td className="p-4">19 août 2025</td>
+                          </tr>
+                          <tr className="border-t">
+                            <td className="p-4">Analyse de Marché</td>
+                            <td className="p-4">N’dia Grâce Emmanuella</td>
+                            <td className="p-4">Analyser le marché cible pour affiner l’argumentaire.</td>
+                            <td className="p-4">Rapport d’analyse (PDF, 1–2 pages).</td>
+                            <td className="p-4">26 août 2025</td>
+                          </tr>
+                          <tr className="border-t">
+                            <td className="p-4">Stratégie de Communication</td>
+                            <td className="p-4">N’dia Grâce Emmanuella</td>
+                            <td className="p-4">Développer une stratégie de communication pour promouvoir le projet π auprès des écoles et partenaires.</td>
+                            <td className="p-4">Plan de communication (Google Doc).</td>
+                            <td className="p-4">26 août 2025</td>
+                          </tr>
+                          <tr className="border-t">
+                            <td className="p-4">Campagne Marketing</td>
+                            <td className="p-4">Lionel Ciad</td>
+                            <td className="p-4">Créer une campagne marketing pour sensibiliser les écoles et attirer des investisseurs.</td>
+                            <td className="p-4">Plan de campagne marketing (Google Doc).</td>
+                            <td className="p-4">26 août 2025</td>
+                          </tr>
+                          <tr className="border-t">
+                            <td className="p-4">Documentation et Tests</td>
+                            <td className="p-4">Ouraga Ange Michel, Kouabena Philippe Eliora</td>
+                            <td className="p-4">Documenter et tester le prototype en classe.</td>
+                            <td className="p-4">Guide utilisateur (PDF) ; retours d’enseignants.</td>
+                            <td className="p-4">2 septembre 2025</td>
+                          </tr>
+                          <tr className="border-t">
+                            <td className="p-4">Prospection et Partenariats</td>
+                            <td className="p-4">N’dia Grâce Emmanuella</td>
+                            <td className="p-4">Contacter des écoles ou le Ministère pour des pilotes.</td>
+                            <td className="p-4">Liste de 3 à 5 partenaires (Google Doc).</td>
+                            <td className="p-4">2 septembre 2025</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h3 className="text-2xl font-medium mt-6 mb-4">Notes</h3>
+                    <ul className="list-disc pl-6 text-gray-700">
+                      <li><strong>Gestion des Ressources</strong>: Réutiliser le matériel existant (Raspberry Pi, caméra, projecteur) et des outils gratuits (OpenCV, React, SQLite).</li>
+                      <li><strong>Collaboration</strong>: Utiliser Google Docs, WhatsApp ou Trello pour partager et suivre les progrès.</li>
+                      <li><strong>Priorisation</strong>: Améliorer le prototype et créer un site web pour attirer des financements.</li>
+                      <li><strong>Suivi</strong>: Points réguliers toutes les deux semaines (19 août et 2 septembre 2025).</li>
                     </ul>
+                  </div>
+                </section>
+
+                {/* Section Témoignages */}
+                <section id="testimonials" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Ce qu’ils disent de nous</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-white p-8 rounded-lg shadow-lg">
+                      <p className="text-gray-600 italic">“Le système π a transformé ma salle de classe. Les élèves sont plus engagés, et le suivi des présences est devenu un jeu d’enfant.”</p>
+                      <p className="text-gray-700 font-medium mt-4">– Professeur Awa Kouassi, Lycée Moderne Cocody</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-lg shadow-lg">
+                      <p className="text-gray-600 italic">“Cette technologie est prometteuse pour nos écoles. Elle est abordable et facile à utiliser, même avec des ressources limitées.”</p>
+                      <p className="text-gray-700 font-medium mt-4">– Directeur Koffi Yao, École Primaire Publique</p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Section FAQ */}
+                <section id="faq" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Foire Aux Questions</h2>
+                  <div className="space-y-6 max-w-3xl mx-auto">
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">Qu’est-ce que le système π ?</h3>
+                      <p className="text-gray-700">Le système π est une solution éducative intégrant la reconnaissance faciale, la projection multimédia et une interface interactive pour moderniser les salles de classe.</p>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">Quel est le coût du système ?</h3>
+                      <p className="text-gray-700">Chaque unité est estimée à environ 195 000 FCFA, rendant la technologie abordable pour les écoles locales.</p>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">Comment puis-je tester le prototype ?</h3>
+                      <p className="text-gray-700">Contactez-nous pour organiser une démonstration dans votre école ou via une session virtuelle.</p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Section Appel à l’Action */}
+                <section className="mb-16 bg-blue-600 text-white py-12 rounded-lg">
+                  <div className="container mx-auto px-4 text-center">
+                    <h2 className="text-3xl font-semibold mb-4">Rejoignez la Révolution Éducative</h2>
+                    <p className="text-lg mb-6 max-w-3xl mx-auto">
+                      Intéressé par le système π ? Participez à notre projet en tant que partenaire, investisseur ou école pilote. Ensemble, transformons l’éducation en Côte d’Ivoire.
+                    </p>
+                    <a href="#contact" className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-medium hover:bg-blue-100 transition">Contactez-nous maintenant</a>
+                  </div>
+                </section>
+
+                {/* Section Contact */}
+                <section id="contact" className="mb-16">
+                  <h2 className="text-3xl font-semibold mb-6 text-center">Nous Contacter</h2>
+                  <p className="text-gray-700 max-w-3xl mx-auto mb-6 text-lg">
+                    Intéressé par le système π ? Contactez-nous pour une démonstration ou pour discuter de partenariats.
+                  </p>
+                  <div className="text-gray-700 max-w-3xl mx-auto text-lg">
+                    <p><strong>Email :</strong> ouragaangemichel@outlook.com</p>
+                    <p><strong>Téléphone :</strong> +225 0151185932</p>
+                    <p><strong>Adresse :</strong> Côte d’Ivoire, Abidjan-Cocody, Cité des Arts, 56 logements</p>
+                  </div>
+                </section>
+              </main>
+
+              {/* Pied de Page */}
+              <footer className="bg-gray-800 text-white py-8 relative">
+                <div className="container mx-auto px-4 text-center">
+                  <p className="group">
+                    © 2025 Oser Accomplir Mieux OAM (Appareil PI). Tous droits réservés.
+                    <span className="absolute left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                      10:05 AM GMT, 23 juillet 2025
+                    </span>
+                  </p>
                 </div>
-
-                <div class="task-card">
-                    <h4>📢 Binôme Communication</h4>
-                    <p><strong>Mission :</strong> Propriété intellectuelle et promotion</p>
-                    <input type="text" class="name-input" placeholder="Nom et prénom responsable 1" id="comm1">
-                    <input type="text" class="name-input" placeholder="Nom et prénom responsable 2" id="comm2">
-                    <p><strong>Tâches :</strong></p>
-                    <ul style="margin-left: 1rem;">
-                        <li>Suivi dossier OAPI</li>
-                        <li>Présentation du projet</li>
-                        <li>Réseaux sociaux</li>
-                        <li>Partenariats</li>
-                    </ul>
-                </div>
+              </footer>
             </div>
+          );
+        };
 
-            <button class="btn save-btn" onclick="saveTeamInfo()">💾 Sauvegarder les informations</button>
-
-            <div style="background: #fff3cd; padding: 1.5rem; border-radius: 10px; margin: 2rem 0; border-left: 5px solid #ffc107;">
-                <h4 style="color: #856404;">📅 Planning 30 jours</h4>
-                <p><strong>Semaine 1-2 :</strong> Audit technique + Recherche financements + Relance OAPI</p>
-                <p><strong>Semaine 3-4 :</strong> Améliorations prototype + Dossier financement + Tests utilisateurs</p>
-                <p><strong>Réunions :</strong> Chaque dimanche à 15h (1h maximum)</p>
-            </div>
-        </section>
-
-        <section id="ventes" class="section sales-section">
-            <h2>💰 Vente et Commercialisation</h2>
-            
-            <div class="price-card">
-                <h3>🏆 Poubelle Souriante - Modèle Standard</h3>
-                <div class="price">Prix : À définir</div>
-                <p>Idéale pour :</p>
-                <ul style="text-align: left; margin: 1rem 0;">
-                    <li>✅ Compétitions technologiques</li>
-                    <li>✅ Conférences sur l'innovation</li>
-                    <li>✅ Salons étudiants</li>
-                    <li>✅ Événements écologiques</li>
-                    <li>✅ Démonstrations dans les écoles</li>
-                </ul>
-            </div>
-
-            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin: 2rem 0;">
-                <h4>🎯 Stratégie de vente</h4>
-                <p><strong>Cibles principales :</strong></p>
-                <ul style="text-align: left; margin: 1rem 0;">
-                    <li>Organisateurs d'événements tech</li>
-                    <li>Établissements scolaires et universitaires</li>
-                    <li>Entreprises responsables</li>
-                    <li>Collectivités locales</li>
-                    <li>ONG environnementales</li>
-                </ul>
-            </div>
-
-            <div class="price-card">
-                <h4>📞 Pour commander ou avoir une démonstration</h4>
-                <p>Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé</p>
-                <button class="btn" onclick="contact()">Demander un devis</button>
-            </div>
-        </section>
-
-
-    </main>
-
-    <footer style="background: linear-gradient(135deg, #2c3e50, #34495e); color: white; text-align: center; padding: 2rem 0; margin-top: 2rem;">
-        <div class="container">
-            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                <h3><strong>Ouraga Ange Michel</strong></h3>
-                <p><strong>Chef de Projet - Startup DLD</strong></p>
-                <p><strong>📧</strong> Site web réalisé par le chef de projet</p>
-                <p><strong>🎯 Vision :</strong> Révolutionner la gestion des déchets en Côte d'Ivoire</p>
-                <p><strong>💡</strong> Innovation au service de l'environnement</p>
-            </div>
-            
-            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                <h4>🙏 Que Dieu vous bénisse et qu'il bénisse la Côte d'Ivoire ❤️</h4>
-                <p><strong>Ensemble, construisons un avenir plus propre et plus intelligent</strong></p>
-            </div>
-            
-            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                <h4>📞 Nous Contacter</h4>
-                <p><strong>Startup DLD - Poubelle Souriante</strong></p>
-                <p><strong>📧 Email :</strong> contact@poubelle-souriante.ci</p>
-                <p><strong>📱 WhatsApp :</strong> +225 XX XX XX XX XX</p>
-                <p><strong>📍 Localisation :</strong> Abidjan, Côte d'Ivoire</p>
-                <p><strong>🏢 Statut :</strong> Startup étudiante en développement</p>
-            </div>
-            
-            <div style="border-top: 1px solid rgba(255,255,255,0.3); padding-top: 1rem;">
-                <p id="datetime" style="font-size: 1.1rem; font-weight: bold;"></p>
-                <p>&copy; 2025 Poubelle Souriante DLD - Tous droits réservés</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function saveTeamInfo() {
-            const teamData = {
-                technique: {
-                    responsable1: document.getElementById('tech1').value,
-                    responsable2: document.getElementById('tech2').value
-                },
-                business: {
-                    responsable1: document.getElementById('biz1').value,
-                    responsable2: document.getElementById('biz2').value
-                },
-                communication: {
-                    responsable1: document.getElementById('comm1').value,
-                    responsable2: document.getElementById('comm2').value
-                },
-                dateModification: new Date().toLocaleString('fr-FR')
-            };
-
-            // Stocker les données localement
-            localStorage.setItem('equipe_poubelle_souriante', JSON.stringify(teamData));
-            
-            alert('✅ Informations de l\'équipe sauvegardées avec succès!\n\nDate de modification : ' + teamData.dateModification);
-            
-            // Afficher les informations sauvegardées
-            displayTeamInfo();
-        }
-
-        function displayTeamInfo() {
-            const savedData = localStorage.getItem('equipe_poubelle_souriante');
-            if (savedData) {
-                const teamData = JSON.parse(savedData);
-                
-                let display = '<div style="background: #d4edda; padding: 1.5rem; border-radius: 10px; margin: 2rem 0; border-left: 5px solid #28a745;">';
-                display += '<h4 style="color: #155724; margin-bottom: 1rem;">👥 Équipe Assignée</h4>';
-                
-                if (teamData.technique.responsable1 || teamData.technique.responsable2) {
-                    display += '<p><strong>Technique :</strong> ' + 
-                              (teamData.technique.responsable1 || 'Non assigné') + 
-                              ' & ' + 
-                              (teamData.technique.responsable2 || 'Non assigné') + '</p>';
-                }
-                
-                if (teamData.business.responsable1 || teamData.business.responsable2) {
-                    display += '<p><strong>Business :</strong> ' + 
-                              (teamData.business.responsable1 || 'Non assigné') + 
-                              ' & ' + 
-                              (teamData.business.responsable2 || 'Non assigné') + '</p>';
-                }
-                
-                if (teamData.communication.responsable1 || teamData.communication.responsable2) {
-                    display += '<p><strong>Communication :</strong> ' + 
-                              (teamData.communication.responsable1 || 'Non assigné') + 
-                              ' & ' + 
-                              (teamData.communication.responsable2 || 'Non assigné') + '</p>';
-                }
-                
-                display += '<p><small>Dernière modification : ' + teamData.dateModification + '</small></p>';
-                display += '</div>';
-                
-                // Insérer après la section des tâches
-                const taskSection = document.querySelector('.task-section');
-                const existingDisplay = document.querySelector('.team-display');
-                if (existingDisplay) {
-                    existingDisplay.remove();
-                }
-                
-                const newDiv = document.createElement('div');
-                newDiv.className = 'team-display';
-                newDiv.innerHTML = display;
-                taskSection.appendChild(newDiv);
-            }
-        }
-
-        function contact() {
-            alert('📞 Pour nous contacter :\n\n✉️ Email : contact@poubelle-souriante.ci\n📱 WhatsApp : +225 XX XX XX XX XX\n\nNous vous répondrons dans les plus brefs délais!');
-        }
-
-        // Charger les informations sauvegardées au chargement de la page
-        document.addEventListener('DOMContentLoaded', function() {
-            displayTeamInfo();
-            updateDateTime();
-            
-            // Mettre à jour l'heure toutes les secondes
-            setInterval(updateDateTime, 1000);
-            
-            // Animation d'entrée
-            const elements = document.querySelectorAll('.section');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
-
-        function updateDateTime() {
-            const now = new Date();
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                timeZone: 'Africa/Abidjan'
-            };
-            
-            const dateTimeString = now.toLocaleDateString('fr-FR', options);
-            const datetimeElement = document.getElementById('datetime');
-            if (datetimeElement) {
-                datetimeElement.textContent = `🕐 ${dateTimeString} (Heure d'Abidjan)`;
-            }
-        }
-
-        // Navigation fluide
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
